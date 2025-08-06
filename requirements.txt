@@ -1,0 +1,14 @@
+streamlit
+langchain
+langchain-community
+langchain-core
+openai
+pydantic
+requests
+fastapi
+uvicorn
+pytest
+langgraph
+ollama
+tqdm
+
