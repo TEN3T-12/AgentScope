@@ -18,7 +18,7 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
           pip install pytest
-      - run: pytest
+      - run: pytest tests/
 
   docker:
     needs: test
