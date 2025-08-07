@@ -5,6 +5,8 @@ from langchain.agents import initialize_agent
 from langchain_ollama import ChatOllama
 from utils.tools import available_tools
 from agents.langgraph_agent import debug_tool_issue_v2 as langgraph_debug
+from agents.langgraph_agent import init_llms
+
 
 llm = ChatOllama(model="deepseek-coder")
 USE_LANGGRAPH = os.getenv("USE_LANGGRAPH", "true").lower() in ("true", "1", "yes")
@@ -18,6 +20,7 @@ legacy_agent = initialize_agent(
 )
 
 def debug_tool_issue(input_description: str) -> str:
+    init_llms()
     print("🤖 Agent analyzing...")
     return langgraph_debug(input_description) if USE_LANGGRAPH else legacy_agent.run(input_description)
 
