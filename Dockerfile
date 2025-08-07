@@ -15,11 +15,8 @@ COPY . /app
 # 📦 Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 🌐 Expose Streamlit port
+# 🌐 Expose the port (Streamlit default)
 EXPOSE 8501
 
-# 🏁 Run Streamlit app (assumes Ollama is running on host)
-CMD ["streamlit", "run", "ui/streamlit_app.py"]
-
-# def is_even(n):
-#     return n % 2 == 1
+# 🏁 Run Streamlit app with dynamic port for Render
+CMD ["streamlit", "run", "ui/streamlit_app.py", "--server.port", "$PORT", "--server.address", "0.0.0.0"]
