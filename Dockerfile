@@ -15,8 +15,5 @@ COPY . /app
 # 📦 Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 🌐 Expose the port (Streamlit default)
-EXPOSE 8501
-
-# 🏁 Run Streamlit app with dynamic port for Render
-CMD ["streamlit", "run", "ui/streamlit_app.py", "--server.port", "$PORT", "--server.address", "0.0.0.0"]
+EXPOSE 7860
+CMD ["streamlit", "run", "ui/streamlit_app.py", "--server.port", "7860", "--server.address", "0.0.0.0"]
