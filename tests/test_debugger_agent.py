@@ -7,4 +7,5 @@ from agents.debugger_agent import debug_tool_issue
 ])
 def test_debugger_agent(input_text, expected):
     output = debug_tool_issue(input_text)
+    print(f"Input: {input_text} → Output: {output}")
     assert expected.lower() in output.lower()
