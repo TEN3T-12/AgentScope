@@ -11,4 +11,6 @@ pytest
 langgraph
 ollama
 tqdm
+langchain_ollama
+
 
