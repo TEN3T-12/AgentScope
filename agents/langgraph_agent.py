@@ -51,7 +51,13 @@ def get_llm_with_fallback(model_list=["phi3:mini", "mistral"]):
             print(f"❌ Model {model} failed: {e}")
     raise RuntimeError("All fallback models failed.")
 
-parsed_llm, llm = get_llm_with_fallback()
+parsed_llm = None
+llm = None
+
+def init_llms():
+    global parsed_llm, llm
+    if llm is None or parsed_llm is None:
+        parsed_llm, llm = get_llm_with_fallback()
 
 # Timer decorator
 def timed_node(func):
